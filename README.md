@@ -122,11 +122,11 @@ API do aplicativo ExpendApp para controle de despesas de um usuário.
 | código | descrição 
 |--------|----------
 |200| os dados foram retornados
-|404| não foi encontrada uma conta com esse ID
+|404| campos não preenchidos
 
 ### Balanço de contas
 
-`GET` expendapp/api/balançodecontas/{id}
+`GET` expendapp/api/balancodecontas/{id}
 
 *Exemplo de resposta*
 
@@ -146,7 +146,7 @@ API do aplicativo ExpendApp para controle de despesas de um usuário.
 | código | descrição 
 |--------|----------
 |200| os dados foram retornados
-|404| não foi encontrada uma conta com esse ID
+|404| não foi encontrado
 
 ### Compras futuras
 
@@ -223,7 +223,7 @@ API do aplicativo ExpendApp para controle de despesas de um usuário.
 | código | descrição 
 |--------|----------
 |200| os dados foram retornados
-|404| não foi encontrada uma conta com esse ID
+|404| valor inválido
 
 ### Adicionar Compra
 
