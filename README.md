@@ -279,11 +279,11 @@ API do aplicativo ExpendApp para controle de despesas de um usuário.
 | código | descrição 
 |--------|----------
 |200| os dados foram retornados
-|404| não foi encontrada uma conta com esse ID
+|400| campos inválidos
 
 ### Adicionar Futura Compra
 
-`POST` expendapp/api/addcompra/{id}
+`POST` expendapp/api/futuracompra/{id}
 
 *Campos de requisição*
 
@@ -312,4 +312,4 @@ API do aplicativo ExpendApp para controle de despesas de um usuário.
 | código | descrição 
 |--------|----------
 |200| os dados foram retornados
-|404| não foi encontrada uma conta com esse ID
+|400| campos inválidos
