@@ -11,23 +11,17 @@ API do aplicativo ExpendApp para controle de despesas de um usuário.
 - Suporte online
     - [Conversar com suporte](#suporte-online)
 - Perfil
+    - [Exibir perfil](#perfil)
     - [Exibir as compras](#exibir-compras)
-    - [Balanço de contas](#balanco-contas)
-    - [Listar compras desejadas](#compras-futuras)
-    - [Configurações Gerais](#config-geral)
+    - [Balanço de contas](#balanço-de-contas)
+    - [Compras futuras](#compras-futuras)
+    - [Configurações Gerais](#configurações-gerais)
 - Limite do mês
-    - [Definir limite mensal](#definir-limite-mensal)
-    
-- Adicionar Compra
-    - [Valor da compra](#inserir-valor)
-    - [Nome da compra](#inserir-nome)
-    - [Local da compra](#inserir-local)
-    - [Forma de pagamento](#inserir-pagamento)
-    - [Data da compra](#inserir-data)
-- Adicionar futuras possíveis compras
-    - [Valor da compra](#inserir-valor)
-    - [Nome da compra](#inserir-nome)
-    - [Local da compra](#inserir-local)
+    - [Definir limite mensal](#definir-limite-mensal)    
+- Nova Compra
+    - [Adicionar compra](#adicionar-compra)
+- Futuras possíveis compras
+    - [Adicionar futura compra](#adicionar-futura-compra)
     
 ### Validar Usuário
 
@@ -153,6 +147,82 @@ API do aplicativo ExpendApp para controle de despesas de um usuário.
 |200| os dados foram retornados
 |404| não foi encontrada uma conta com esse ID
 
+### Balanço de contas
+
+`GET` expendapp/api/balançodecontas/{id}
+
+*Exemplo de resposta*
+
+```js
+{
+    quantidade compras do mês: '11',
+    valor total do mes: 1200.00,
+    limite mensal: 2000.00,
+    economia: 800.00,
+    forma de pagamento mais usado: 'Crédito',
+    média de gasto mensal: 'Abaixo'
+}
+```
+
+*Resposta*
+
+| código | descrição 
+|--------|----------
+|200| os dados foram retornados
+|404| não foi encontrada uma conta com esse ID
+
+### Compras futuras
+
+`GET` expendapp/api/comprasfuturas/{id}
+
+*Exemplo de resposta*
+
+```js
+{
+    compra: 'Headset',
+    valor: 350.00,
+    forma de pagamentos: 'Dinheiro'
+}
+```
+
+*Resposta*
+
+| código | descrição 
+|--------|----------
+|200| os dados foram retornados
+|404| não foi encontrada uma conta com esse ID
+
+### Configurações gerais
+
+`POST` expendapp/api/confgerais/{id}
+
+*Campos de requisição*
+
+| campo | tipo | obrigatório | descrição
+|-------|------|:-------------:|----------
+|notificações |boleano|sim |ligar notificações
+|novidades por email |boleano|sim |ativar emails com novidades
+|tema |boleano|sim |ativar modo noturno
+
+*Exemplo de resposta*
+
+```js
+{
+    notificações: 'sim',
+    novidades por email: 'sim',
+    tema: 'noturno'
+}
+```
+
+*Resposta*
+
+| código | descrição 
+|--------|----------
+|200| os dados foram retornados
+|500| erro no servidor
+
+
+
 ### Definir Limite Mensal
 
 `POST` expendapp/api/limitemensal/{id}
@@ -178,75 +248,6 @@ API do aplicativo ExpendApp para controle de despesas de um usuário.
 |200| os dados foram retornados
 |404| não foi encontrada uma conta com esse ID
 
-### Configurar O Balanço De Contas
-
-`POST` expendapp/api/balancoconta/{id}
-
-*Exemplo de resposta*
-
-```js
-{
-    valor: 100.59,
-    data: '2023-12-27',
-    contaId: 1,
-    categoriaId: 1,
-    descricao: 'cinema com os amigos'
-}
-```
-
-*Resposta*
-
-| código | descrição 
-|--------|----------
-|200| os dados foram retornados
-|404| não foi encontrada uma conta com esse ID
-
-### Listar Compras Desejadas
-
-`GET` expendapp/api/compradesejada/{id}
-
-*Exemplo de resposta*
-
-```js
-{
-    valor: 100.59,
-    data: '2023-12-27',
-    contaId: 1,
-    categoriaId: 1,
-    descricao: 'cinema com os amigos'
-}
-```
-
-*Resposta*
-
-| código | descrição 
-|--------|----------
-|200| os dados foram retornados
-|404| não foi encontrada uma conta com esse ID
-
-### Configurações Gerais
-
-`POST` expendapp/api/configgeral/{id}
-
-*Exemplo de resposta*
-
-```js
-{
-    valor: 100.59,
-    data: '2023-12-27',
-    contaId: 1,
-    categoriaId: 1,
-    descricao: 'cinema com os amigos'
-}
-```
-
-*Resposta*
-
-| código | descrição 
-|--------|----------
-|200| os dados foram retornados
-|404| não foi encontrada uma conta com esse ID
-
 ### Adicionar Compra
 
 `POST` expendapp/api/addcompra/{id}
@@ -255,11 +256,34 @@ API do aplicativo ExpendApp para controle de despesas de um usuário.
 
 ```js
 {
-    valor: 100.59,
-    data: '2023-12-27',
-    contaId: 1,
-    categoriaId: 1,
-    descricao: 'cinema com os amigos'
+    compra: 'Mouse Gamer'
+    valor: 250.59,
+    data: '2022-03-27',
+    quantidade: 1
+    tipo de pagamento: 'Dédito'
+}
+```
+
+*Resposta*
+
+| código | descrição 
+|--------|----------
+|200| os dados foram retornados
+|404| não foi encontrada uma conta com esse ID
+
+### Adicionar Futura Compra
+
+`POST` expendapp/api/addcompra/{id}
+
+*Exemplo de resposta*
+
+```js
+{
+    compra: 'Mouse Gamer'
+    valor: 250.59,
+    data: '2022-03-27',
+    quantidade: 1
+    tipo de pagamento: 'Dédito'
 }
 ```
 
