@@ -250,17 +250,27 @@ API do aplicativo ExpendApp para controle de despesas de um usuário.
 
 ### Adicionar Compra
 
-`POST` expendapp/api/addcompra/{id}
+`POST` expendapp/api/adicionarcompra/{id}
+
+*Campos de requisição*
+
+| campo | tipo | obrigatório | descrição
+|-------|------|:-------------:|----------
+|nome compra |texto |sim |o nome da compra
+|valor |decimal inteiro |sim |o valor da compra
+|data |data |sim |a data da compra
+|quantidade |inteiro |sim |a quantidade de itens comprados
+|tipo pagamento |texto |não |o tipo de pagamento usado
 
 *Exemplo de resposta*
 
 ```js
 {
-    compra: 'Mouse Gamer'
+    nome compra: 'Mouse Gamer'
     valor: 250.59,
     data: '2022-03-27',
     quantidade: 1
-    tipo de pagamento: 'Dédito'
+    tipo de pagamento: 'Débito'
 }
 ```
 
@@ -275,15 +285,25 @@ API do aplicativo ExpendApp para controle de despesas de um usuário.
 
 `POST` expendapp/api/addcompra/{id}
 
+*Campos de requisição*
+
+| campo | tipo | obrigatório | descrição
+|-------|------|:-------------:|----------
+|nome compra |texto |sim |o nome da compra
+|valor |decimal inteiro |sim |o valor da compra
+|mês |texto |não |o mês da compra
+|quantidade |inteiro |sim |a quantidade de itens comprados
+|tipo pagamento |texto |não |o tipo de pagamento usado
+
 *Exemplo de resposta*
 
 ```js
 {
-    compra: 'Mouse Gamer'
-    valor: 250.59,
-    data: '2022-03-27',
+    compra: 'Controle Playstation'
+    valor: 100.99,
+    mês: 'Março',
     quantidade: 1
-    tipo de pagamento: 'Dédito'
+    tipo de pagamento: 'Débito'
 }
 ```
 
