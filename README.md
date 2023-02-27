@@ -8,25 +8,27 @@ API do aplicativo ExpendApp para controle de despesas de um usuário.
     - [Validar usuário](#validar-usuário)
 - Cadastrar
     - [Inserir dados](#inserir-dados)
-- Suporte Online
+- Suporte online
     - [Conversar com suporte](#suporte-online)
-- Home
-    - [Perfil](#perfil)
+- Perfil
     - [Exibir as compras](#exibir-compras)
-    - [Definir limite mensal](#definir-limite-mensal)
     - [Balanço de contas](#balanco-contas)
     - [Listar compras desejadas](#compras-futuras)
     - [Configurações Gerais](#config-geral)
-- Compras do Mês
-    - Exibir as compras dos meses
+- Limite do mês
+    - [Definir limite mensal](#definir-limite-mensal)
+    
 - Adicionar Compra
     - [Valor da compra](#inserir-valor)
     - [Nome da compra](#inserir-nome)
     - [Local da compra](#inserir-local)
     - [Forma de pagamento](#inserir-pagamento)
     - [Data da compra](#inserir-data)
-    - [Adicionar compra](#adicionar-compra)
-
+- Adicionar futuras possíveis compras
+    - [Valor da compra](#inserir-valor)
+    - [Nome da compra](#inserir-nome)
+    - [Local da compra](#inserir-local)
+    
 ### Validar Usuário
 
 `POST` /expendapp/api/login/
@@ -52,7 +54,7 @@ API do aplicativo ExpendApp para controle de despesas de um usuário.
 
 | código | descrição 
 |--------|----------
-|201| a conta foi cadastrada com sucesso
+|201| a conta foi válidada com sucesso
 |400| campos inválidos
 
 ### Inserir dados
@@ -83,8 +85,8 @@ API do aplicativo ExpendApp para controle de despesas de um usuário.
 
 | código | descrição 
 |--------|----------
-|200| os dados foram retornados
-|404| não foi encontrada uma conta com esse ID
+|201| os dados foram cadastrados
+|400| campos inválidos
 
 ### Suporte Online
 
@@ -94,11 +96,7 @@ API do aplicativo ExpendApp para controle de despesas de um usuário.
 
 ```js
 {
-    valor: 100.59,
-    data: '2023-12-27',
-    contaId: 1,
-    categoriaId: 1,
-    descricao: 'cinema com os amigos'
+    numero whatsapp: '011 93838-3939'
 }
 ```
 
@@ -107,7 +105,7 @@ API do aplicativo ExpendApp para controle de despesas de um usuário.
 | código | descrição 
 |--------|----------
 |200| os dados foram retornados
-|404| não foi encontrada uma conta com esse ID
+|500| erro no servidor
 
 ### Perfil
 
@@ -117,7 +115,7 @@ API do aplicativo ExpendApp para controle de despesas de um usuário.
 
 ```js
 {
-    valor: 100.59,
+    nome: 'José da Silva',
     data: '2023-12-27',
     contaId: 1,
     categoriaId: 1,
@@ -229,144 +227,6 @@ API do aplicativo ExpendApp para controle de despesas de um usuário.
 ### Configurações Gerais
 
 `POST` expendapp/api/configgeral/{id}
-
-*Exemplo de resposta*
-
-```js
-{
-    valor: 100.59,
-    data: '2023-12-27',
-    contaId: 1,
-    categoriaId: 1,
-    descricao: 'cinema com os amigos'
-}
-```
-
-*Resposta*
-
-| código | descrição 
-|--------|----------
-|200| os dados foram retornados
-|404| não foi encontrada uma conta com esse ID
-
-### Exibir As Compras Dos Meses
-
-`GET` expendapp/api/comprasmes/{id}
-
-*Exemplo de resposta*
-
-```js
-{
-    valor: 100.59,
-    data: '2023-02-22',
-    contaId: 1,
-    categoriaId: 1,
-    descricao: 'restaurante'
-}
-```
-
-*Resposta*
-
-| código | descrição 
-|--------|----------
-|200| os dados foram retornados
-|404| não foi encontrada uma compra com esse ID
-
-### Valor Da Compra
-
-`POST` expendapp/api/valorcompra/{id}
-
-*Exemplo de resposta*
-
-```js
-{
-    valor: 100.59,
-    data: '2023-12-27',
-    contaId: 1,
-    categoriaId: 1,
-    descricao: 'cinema com os amigos'
-}
-```
-
-*Resposta*
-
-| código | descrição 
-|--------|----------
-|200| os dados foram retornados
-|404| não foi encontrada uma conta com esse ID
-
-### Nome Da Compra
-
-`POST` expendapp/api/nomecompra/{id}
-
-*Exemplo de resposta*
-
-```js
-{
-    valor: 100.59,
-    data: '2023-12-27',
-    contaId: 1,
-    categoriaId: 1,
-    descricao: 'cinema com os amigos'
-}
-```
-
-*Resposta*
-
-| código | descrição 
-|--------|----------
-|200| os dados foram retornados
-|404| não foi encontrada uma conta com esse ID
-
-### Local Da Compra
-
-`POST` expendapp/api/localcompra/{id}
-
-*Exemplo de resposta*
-
-```js
-{
-    valor: 100.59,
-    data: '2023-12-27',
-    contaId: 1,
-    categoriaId: 1,
-    descricao: 'cinema com os amigos'
-}
-```
-
-*Resposta*
-
-| código | descrição 
-|--------|----------
-|200| os dados foram retornados
-|404| não foi encontrada uma conta com esse ID
-
-### Forma De Pagamento
-
-`POST` expendapp/api/formapag/{id}
-
-*Exemplo de resposta*
-
-```js
-{
-    valor: 100.59,
-    data: '2023-12-27',
-    contaId: 1,
-    categoriaId: 1,
-    descricao: 'cinema com os amigos'
-}
-```
-
-*Resposta*
-
-| código | descrição 
-|--------|----------
-|200| os dados foram retornados
-|404| não foi encontrada uma conta com esse ID
-
-### Data Da Compra
-
-`POST` expendapp/api/datacompra/{id}
 
 *Exemplo de resposta*
 
