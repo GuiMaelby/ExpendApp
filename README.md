@@ -12,8 +12,8 @@ API do aplicativo ExpendApp para controle de despesas de um usuário.
     - [Conversar com suporte](#suporte-online)
 - Home
     - [Perfil](#perfil)
-    - [Exibir as compras dos meses](#exibir-compras)
-    - [Definir limite mensal](#limite-mensal)
+    - [Exibir as compras](#exibir-compras)
+    - [Definir limite mensal](#definir-limite-mensal)
     - [Balanço de contas](#balanco-contas)
     - [Listar compras desejadas](#compras-futuras)
     - [Configurações Gerais](#config-geral)
@@ -111,7 +111,7 @@ API do aplicativo ExpendApp para controle de despesas de um usuário.
 
 ### Perfil
 
-`POST` expendapp/api/perfil/{id}
+`GET` expendapp/api/perfil/{id}
 
 *Exemplo de resposta*
 
@@ -132,7 +132,7 @@ API do aplicativo ExpendApp para controle de despesas de um usuário.
 |200| os dados foram retornados
 |404| não foi encontrada uma conta com esse ID
 
-### Exibir As Compras Dos Meses
+### Exibir Compras
 
 `GET` expendapp/api/comprasmes/{id}
 
@@ -140,11 +140,11 @@ API do aplicativo ExpendApp para controle de despesas de um usuário.
 
 ```js
 {
-    valor: 100.59,
-    data: '2023-12-27',
-    contaId: 1,
-    categoriaId: 1,
-    descricao: 'cinema com os amigos'
+    compra: 'Mouse Gamer'
+    valor: 250.59,
+    data: '2022-03-27',
+    quantidade: 1
+    tipo de pagamento: 'Dédito'
 }
 ```
 
@@ -159,15 +159,17 @@ API do aplicativo ExpendApp para controle de despesas de um usuário.
 
 `POST` expendapp/api/limitemensal/{id}
 
+*Campos de requisição*
+
+| campo | tipo | obrigatório | descrição
+|-------|------|:-------------:|----------
+|valor limite |decimal inteiro |não |valor limite mensal
+
 *Exemplo de resposta*
 
 ```js
 {
-    valor: 100.59,
-    data: '2023-12-27',
-    contaId: 1,
-    categoriaId: 1,
-    descricao: 'cinema com os amigos'
+    valor limite: 2500,00
 }
 ```
 
