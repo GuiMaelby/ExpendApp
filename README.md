@@ -71,7 +71,7 @@ API do aplicativo ExpendApp para controle de despesas de um usuário.
     nome: 'José da Silva',
     email: 'josesilva@hotmail.com',
     senha: 'jose123',
-    data: '1980-12-27',
+    nascimento: '1980-12-27',
 }
 ```
 
@@ -100,29 +100,6 @@ API do aplicativo ExpendApp para controle de despesas de um usuário.
 |--------|----------
 |200| os dados foram retornados
 |500| erro no servidor
-
-### Perfil
-
-`GET` expendapp/api/perfil/{id}
-
-*Exemplo de resposta*
-
-```js
-{
-    nome: 'José da Silva',
-    data: '2023-12-27',
-    contaId: 1,
-    categoriaId: 1,
-    descricao: 'cinema com os amigos'
-}
-```
-
-*Resposta*
-
-| código | descrição 
-|--------|----------
-|200| os dados foram retornados
-|404| não foi encontrada uma conta com esse ID
 
 ### Exibir Compras
 
