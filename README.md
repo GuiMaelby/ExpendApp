@@ -5,17 +5,16 @@ API do aplicativo ExpendApp para controle de despesas de um usuário.
 ## Endpoints
 
 - Login
-    - [Validar usuário](#validar-usuario)
-    - [Cadastrar usuário](#cadastrar-usuario)
-    - [Suporte Online](#suporte-online)
-- Cadastrar -----------precisa mexer no figma, adicionar essa tela!
-    - [Inserir dados pessoais](#inserir-dados)
-    - [Criar conta](#criar-usuario)
+    - [Validar usuário](#validar-usuário)
+- Cadastrar
+    - [Inserir dados](#inserir-dados)
+- Suporte Online
+    - [Conversar com suporte](#suporte-online)
 - Home
-    - [Perfil](#config-conta)
+    - [Perfil](#perfil)
     - [Exibir as compras dos meses](#exibir-compras)
     - [Definir limite mensal](#limite-mensal)
-    - [Configurar o balanço de contas](#balanco-contas)
+    - [Balanço de contas](#balanco-contas)
     - [Listar compras desejadas](#compras-futuras)
     - [Configurações Gerais](#config-geral)
 - Compras do Mês
@@ -30,27 +29,22 @@ API do aplicativo ExpendApp para controle de despesas de um usuário.
 
 ### Validar Usuário
 
-`POST` /expendapp/api/login
+`POST` /expendapp/api/login/
 
 *Campos de requisição*
 
 | campo | tipo | obrigatório | descrição
 |-------|------|:-------------:|----------
-|valor|decimal positivo|sim| o valor da despesa
-|data|data|sim| a data da despesa
-|contaId|inteiro|sim| o id de uma conta previamente cadastrada
-|categoriaId|inteiro|sim| o id de uma categoria previamente cadastrada
-|descricao|texto|não| um texto sobre a despesa
+|email|texto|sim| o endereço de email
+|senha|texto|sim| a senha do usuário
+
 
 *Exemplo de requisição*
 
 ```js
 {
-    valor: 100.59,
-    data: '2023-12-27',
-    contaId: 1,
-    categoriaId: 1,
-    descricao: 'cinema com os amigos'
+    email: 'felipe@email.com',
+    senha: 'senha123'
 }
 ```
 
@@ -61,19 +55,27 @@ API do aplicativo ExpendApp para controle de despesas de um usuário.
 |201| a conta foi cadastrada com sucesso
 |400| campos inválidos
 
-### Cadastrar Usuário
+### Inserir dados
 
-`POST` expendapp/api/conta/{id}
+`POST` expendapp/api/cadastro/
+
+*Campos de requisição*
+
+| campo | tipo | obrigatório | descrição
+|-------|------|:-------------:|----------
+|nome|texto|sim| nome completo do usuário
+|email|texto|sim| o endereço de email
+|senha|texto|sim| a senha do usuário
+|data nascimento|data|sim| data de nascimento do usuário
 
 *Exemplo de resposta*
 
 ```js
 {
-    valor: 100.59,
-    data: '2023-12-27',
-    contaId: 1,
-    categoriaId: 1,
-    descricao: 'cinema com os amigos'
+    nome: 'José da Silva',
+    email: 'josesilva@hotmail.com',
+    senha: 'jose123',
+    data: '1980-12-27',
 }
 ```
 
@@ -86,53 +88,7 @@ API do aplicativo ExpendApp para controle de despesas de um usuário.
 
 ### Suporte Online
 
-`POST` expendapp/api/suporteonline/{id}
-
-*Exemplo de resposta*
-
-```js
-{
-    valor: 100.59,
-    data: '2023-12-27',
-    contaId: 1,
-    categoriaId: 1,
-    descricao: 'cinema com os amigos'
-}
-```
-
-*Resposta*
-
-| código | descrição 
-|--------|----------
-|200| os dados foram retornados
-|404| não foi encontrada uma conta com esse ID
-
-### Inserir Dados Pessoais
-
-`POST` expendapp/api/dadoscadastro/{id}
-
-*Exemplo de resposta*
-
-```js
-{
-    valor: 100.59,
-    data: '2023-12-27',
-    contaId: 1,
-    categoriaId: 1,
-    descricao: 'cinema com os amigos'
-}
-```
-
-*Resposta*
-
-| código | descrição 
-|--------|----------
-|200| os dados foram retornados
-|404| não foi encontrada uma conta com esse ID
-
-### Criar Conta
-
-`POST` expendapp/api/cadastroconta/{id}
+`GET` expendapp/api/suporteonline/
 
 *Exemplo de resposta*
 
