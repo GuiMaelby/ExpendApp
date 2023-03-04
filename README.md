@@ -11,7 +11,7 @@ API do aplicativo ExpendApp para controle de despesas de um usuário.
 - Suporte online
     - [Conversar com suporte](#suporte-online)
 - Perfil
-    - [Exibir perfil](#perfil)
+    - [Exibir perfil](#perfil-usuário)
     - [Exibir as compras](#exibir-compras)
     - [Balanço de contas](#balanço-de-contas)
     - [Compras futuras](#compras-futuras)
@@ -102,7 +102,7 @@ API do aplicativo ExpendApp para controle de despesas de um usuário.
 
 ### Exibir Perfil
 
-`GET` expendapp/api/perfil/{id}
+`GET` expendapp/api/perfilusuario/
 
 *Exemplo de resposta*
 
