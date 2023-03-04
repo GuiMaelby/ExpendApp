@@ -102,7 +102,7 @@ API do aplicativo ExpendApp para controle de despesas de um usuário.
 
 ### Exibir Perfil
 
-`GET` expendapp/api/perfil/
+`GET` expendapp/api/perfil/{id}
 
 *Exemplo de resposta*
 
