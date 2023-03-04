@@ -100,6 +100,26 @@ API do aplicativo ExpendApp para controle de despesas de um usuário.
 |200| os dados foram retornados
 |500| erro no servidor
 
+### Exibir Perfil
+
+`GET` expendapp/api/perfil/
+
+*Exemplo de resposta*
+
+```js
+{
+    nome: 'José da Silva',
+}
+```
+
+*Resposta*
+
+| código | descrição 
+|--------|----------
+|200| os dados foram retornados
+|404| não foi encontrado
+
+
 ### Exibir Compras
 
 `GET` expendapp/api/comprasmes/{id}
