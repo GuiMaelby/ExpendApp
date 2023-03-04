@@ -19,9 +19,9 @@ API do aplicativo ExpendApp para controle de despesas de um usuário.
 - Limite do mês
     - [Definir limite mensal](#definir-limite-mensal)    
 - Nova Compra
-    - [Adicionar compra](#adicionar-compra)
+    - [Adicionar compra](#add-compra)
 - Futuras possíveis compras
-    - [Adicionar futura compra](#adicionar-futura-compra)
+    - [Adicionar futura compra](#futura-compra)
     
 ### Validar Usuário
 
@@ -48,7 +48,6 @@ API do aplicativo ExpendApp para controle de despesas de um usuário.
 
 | código | descrição 
 |--------|----------
-|201| a conta foi válidada com sucesso
 |400| campos inválidos
 
 ### Inserir dados
@@ -109,9 +108,10 @@ API do aplicativo ExpendApp para controle de despesas de um usuário.
 
 ```js
 {
-    compra: 'Mouse Gamer'
+    produto: 'Mouse Gamer'
     valor: 250.59,
     data: '2022-03-27',
+    mês: "Março"
     quantidade: 1
     tipo de pagamento: 'Dédito'
 }
@@ -132,11 +132,11 @@ API do aplicativo ExpendApp para controle de despesas de um usuário.
 
 ```js
 {
-    quantidade compras do mês: '11',
+    quantidade compras do mes: '11',
     valor total do mes: 1200.00,
     limite mensal: 2000.00,
     economia: 800.00,
-    forma de pagamento mais usado: 'Crédito',
+    forma de pagamento mais usado: 'Credito',
     média de gasto mensal: 'Abaixo'
 }
 ```
@@ -156,7 +156,7 @@ API do aplicativo ExpendApp para controle de despesas de um usuário.
 
 ```js
 {
-    compra: 'Headset',
+    produto: 'Headset',
     valor: 350.00,
     forma de pagamentos: 'Dinheiro'
 }
@@ -167,7 +167,7 @@ API do aplicativo ExpendApp para controle de despesas de um usuário.
 | código | descrição 
 |--------|----------
 |200| os dados foram retornados
-|404| não foi encontrada uma compra com esse ID
+|404| não foi encontrada um produto com esse ID
 
 ### Configurações gerais
 
@@ -177,7 +177,7 @@ API do aplicativo ExpendApp para controle de despesas de um usuário.
 
 | campo | tipo | obrigatório | descrição
 |-------|------|:-------------:|----------
-|notificações |boleano|sim |ligar notificações
+|notificações |booleano|sim |ligar notificações
 |novidades por email |boleano|sim |ativar emails com novidades
 |tema |boleano|sim |ativar modo noturno
 
@@ -208,13 +208,13 @@ API do aplicativo ExpendApp para controle de despesas de um usuário.
 
 | campo | tipo | obrigatório | descrição
 |-------|------|:-------------:|----------
-|valor limite |decimal inteiro |não |valor limite mensal
+|valor limite |decimal |não |valor limite mensal
 
 *Exemplo de resposta*
 
 ```js
 {
-    valor limite: 2500,00
+    valor limite: 2500.00
 }
 ```
 
@@ -225,17 +225,17 @@ API do aplicativo ExpendApp para controle de despesas de um usuário.
 |200| os dados foram retornados
 |404| valor inválido
 
-### Adicionar Compra
+### Adicionar Produto
 
-`POST` expendapp/api/adicionarcompra/{id}
+`POST` expendapp/api/addproduto/{id}
 
 *Campos de requisição*
 
 | campo | tipo | obrigatório | descrição
 |-------|------|:-------------:|----------
-|nome compra |texto |sim |o nome da compra
-|valor |decimal inteiro |sim |o valor da compra
-|data |data |sim |a data da compra
+|nome produto |texto |sim |o nome do produto
+|valor |decimal |sim |o valor do produto
+|data |data |sim |a data do produto
 |quantidade |inteiro |sim |a quantidade de itens comprados
 |tipo pagamento |texto |não |o tipo de pagamento usado
 
@@ -243,7 +243,7 @@ API do aplicativo ExpendApp para controle de despesas de um usuário.
 
 ```js
 {
-    nome compra: 'Mouse Gamer'
+    nome produto: 'Mouse Gamer'
     valor: 250.59,
     data: '2022-03-27',
     quantidade: 1
@@ -258,7 +258,7 @@ API do aplicativo ExpendApp para controle de despesas de um usuário.
 |200| os dados foram retornados
 |400| campos inválidos
 
-### Adicionar Futura Compra
+### Futura compra
 
 `POST` expendapp/api/futuracompra/{id}
 
@@ -266,9 +266,9 @@ API do aplicativo ExpendApp para controle de despesas de um usuário.
 
 | campo | tipo | obrigatório | descrição
 |-------|------|:-------------:|----------
-|nome compra |texto |sim |o nome da compra
-|valor |decimal inteiro |sim |o valor da compra
-|mês |texto |não |o mês da compra
+|nome produto |texto |sim |o nome do produto
+|valor |decimal |sim |o valor do produto
+|mês |texto |não |o mês do produto
 |quantidade |inteiro |sim |a quantidade de itens comprados
 |tipo pagamento |texto |não |o tipo de pagamento usado
 
@@ -276,7 +276,7 @@ API do aplicativo ExpendApp para controle de despesas de um usuário.
 
 ```js
 {
-    compra: 'Controle Playstation'
+    produto: 'Controle Playstation'
     valor: 100.99,
     mês: 'Março',
     quantidade: 1
