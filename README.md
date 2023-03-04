@@ -225,9 +225,9 @@ API do aplicativo ExpendApp para controle de despesas de um usuário.
 |200| os dados foram retornados
 |404| valor inválido
 
-### Adicionar Produto
+### Adicionar Compra
 
-`POST` expendapp/api/addproduto/{id}
+`POST` expendapp/api/add-compra/{id}
 
 *Campos de requisição*
 
