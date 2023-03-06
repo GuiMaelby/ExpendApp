@@ -16,7 +16,6 @@ API do aplicativo ExpendApp para controle de despesas de um usuário.
     - [Balanço de contas](#balanço-de-contas)
     - [Compras futuras](#compras-futuras)
     - [Configurações Gerais](#configurações-gerais)
-- Limite do mês
     - [Definir limite mensal](#definir-limite-mensal)    
 - Nova Compra
     - [Adicionar compra](#add-compra)
