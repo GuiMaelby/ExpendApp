@@ -14,14 +14,11 @@ API do aplicativo ExpendApp para controle de despesas de um usuário.
     - [Exibir perfil](#perfil)
     - [Exibir as compras](#exibir-compras)
     - [Balanço de contas](#balanço-de-contas)
-    - [Compras futuras](#compras-futuras)
     - [Configurações Gerais](#conf-gerais)
 - Limite do mês
     - [Definir limite mensal](#limite)    
 - Novo produto
-    - [Adicionar produto](#novo-produto)
-- Futuras possíveis compras
-    - [Adicionar futura compra](#futura-compra)
+    - [Adicionar produto](#produto)
     
 ### Validar Usuário
 
@@ -167,27 +164,6 @@ API do aplicativo ExpendApp para controle de despesas de um usuário.
 |200| os dados foram retornados
 |404| não foi encontrado
 
-### Compras futuras
-
-`GET` expendapp/api/comprasfuturas/{id}
-
-*Exemplo de resposta*
-
-```js
-{
-    compra: 'Headset',
-    valor: 350.00,
-    forma de pagamentos: 'Dinheiro'
-}
-```
-
-*Resposta*
-
-| código | descrição 
-|--------|----------
-|200| os dados foram retornados
-|404| não foi encontrada uma compra com esse ID
-
 ### Configurações gerais
 
 `POST` expendapp/api/confgerais/{id}
@@ -246,7 +222,7 @@ API do aplicativo ExpendApp para controle de despesas de um usuário.
 
 ### Adicionar produto
 
-`POST` expendapp/api/novoproduto/{id}
+`POST` expendapp/api/produto/{id}
 
 *Campos de requisição*
 
@@ -265,39 +241,6 @@ API do aplicativo ExpendApp para controle de despesas de um usuário.
     nome compra: 'Mouse Gamer'
     valor: 250.59,
     data: '2022-03-27',
-    quantidade: 1
-    tipo de pagamento: 'Débito'
-}
-```
-
-*Resposta*
-
-| código | descrição 
-|--------|----------
-|200| os dados foram retornados
-|400| campos inválidos
-
-### Adicionar Futura Compra
-
-`POST` expendapp/api/futuracompra/{id}
-
-*Campos de requisição*
-
-| campo | tipo | obrigatório | descrição
-|-------|------|:-------------:|----------
-|nome compra |texto |sim |o nome da compra
-|valor |decimal inteiro |sim |o valor da compra
-|mês |texto |não |o mês da compra
-|quantidade |inteiro |sim |a quantidade de itens comprados
-|tipo pagamento |texto |não |o tipo de pagamento usado
-
-*Exemplo de resposta*
-
-```js
-{
-    compra: 'Controle Playstation'
-    valor: 100.99,
-    mês: 'Março',
     quantidade: 1
     tipo de pagamento: 'Débito'
 }
