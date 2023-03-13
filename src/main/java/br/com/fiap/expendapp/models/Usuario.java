@@ -7,13 +7,13 @@ public class Usuario {
 	private String nome;
 	private String email;
 	private String senha;
-	private LocalDate datanascimento;
+	private LocalDate dataNascimento;
 
-	public Usuario(String nome, String email, String senha, LocalDate datanascimento) {
+	public Usuario(String nome, String email, String senha, LocalDate dataNascimento) {
 		this.nome = nome;
 		this.email = email;
 		this.senha = senha;
-		this.datanascimento = datanascimento;
+		this.dataNascimento = dataNascimento;
 	}
 
 	public String getNome() {
@@ -41,16 +41,16 @@ public class Usuario {
 	}
 
 	public LocalDate getDatanascimento() {
-		return datanascimento;
+		return dataNascimento;
 	}
 
 	public void setDatanascimento(LocalDate datanascimento) {
-		this.datanascimento = datanascimento;
+		this.dataNascimento = datanascimento;
 	}
 
 	@Override
 	public String toString() {
-		return "Usuario [nome=" + nome + ", email=" + email + ", senha=" + senha + ", datanascimento=" + datanascimento
+		return "Usuario [nome=" + nome + ", email=" + email + ", senha=" + senha + ", datanascimento=" + dataNascimento
 				+ "]";
 	}
 

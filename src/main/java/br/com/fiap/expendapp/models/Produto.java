@@ -10,14 +10,14 @@ public class Produto {
 	private BigDecimal valor;
 	private LocalDate data;
 	private int qtd;
-	private String tipopg;
+	private String tipoPg;
 
-	public Produto(String produto, BigDecimal valor, LocalDate data, int qtd, String tipopg) {
+	public Produto(String produto, BigDecimal valor, LocalDate data, int qtd, String tipoPg) {
         this.produto = produto;
         this.valor = valor;
         this.data = data;
         this.qtd = qtd;
-        this.tipopg = tipopg;
+        this.tipoPg = tipoPg;
     }
 
 	public String getProduto() {
@@ -53,11 +53,11 @@ public class Produto {
 	}
 
 	public String getTipopg() {
-		return tipopg;
+		return tipoPg;
 	}
 
 	public void setTipopg(String tipopg) {
-		this.tipopg = tipopg;
+		this.tipoPg = tipopg;
 	}
 
 	public Long getId() {
@@ -71,7 +71,7 @@ public class Produto {
 	@Override
 	public String toString() {
 		return "Produto [nome=" + produto + ", valor=" + valor + ", data=" + data + ", qtd=" + qtd + ", tipopg="
-				+ tipopg + "]";
+				+ tipoPg + "]";
 	}
 	
 }
