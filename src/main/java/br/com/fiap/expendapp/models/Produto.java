@@ -3,14 +3,25 @@ package br.com.fiap.expendapp.models;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-public class Produto {
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 
+@Entity
+public class Produto {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String produto;
 	private BigDecimal valor;
 	private LocalDate data;
 	private int qtd;
 	private String tipoPg;
+
+	protected Produto(){
+		
+	}
 
 	public Produto(String produto, BigDecimal valor, LocalDate data, int qtd, String tipoPg) {
         this.produto = produto;
