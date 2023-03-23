@@ -16,34 +16,36 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.com.fiap.expendapp.models.Compras;
+import br.com.fiap.expendapp.repository.ComprasRepository;
 import br.com.fiap.expendapp.models.Produto;
 import br.com.fiap.expendapp.repository.ProdutoRepository;
 
 
 @RestController
-@RequestMapping("/api/produto")
-public class ProdutoController {
+@RequestMapping("/api/compras")
+public class ComprasController {
     
-    Logger log = LoggerFactory.getLogger(ProdutoController.class);
+    Logger log = LoggerFactory.getLogger(ComprasController.class);
 
     @Autowired
-    ProdutoRepository repository;
+    ComprasController repository;
 
     @GetMapping
-    public List<Produto>index(){
+    public List<Compras>index(){
         return repository.findAll();
     }
 
     @PostMapping
-    public ResponseEntity<Produto> create(@RequestBody Produto produto) {
-        log.info("cadastrando produto" + produto);
-        repository.save(produto);     
-        return ResponseEntity.status(HttpStatus.CREATED).body(produto);
+    public ResponseEntity<Compras> create(@RequestBody Compras compras) {
+        log.info("cadastrando produto" + compras);
+        repository.save(compras);     
+        return ResponseEntity.status(HttpStatus.CREATED).body(compras);
 
     }
 
     @GetMapping("{id}")
-    public ResponseEntity<Produto> show(@PathVariable Long id) {
+    public ResponseEntity<Compras> show(@PathVariable Long id) {
         log.info("buscar produto" + id);
         var produtoEncontrado = repository.findById(id);
         
