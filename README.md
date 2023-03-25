@@ -13,7 +13,6 @@ API do aplicativo ExpendApp para controle de despesas de um usuário.
 - Home
     - [Exibir perfil](#perfil)
     - [Exibir as compras](#exibir-compras)
-    - [Balanço de contas](#balanço-de-contas)
     - [Configurações Gerais](#conf-gerais)
 - Limite do mês
     - [Definir limite mensal](#limite)    
@@ -139,30 +138,6 @@ API do aplicativo ExpendApp para controle de despesas de um usuário.
 |--------|----------
 |200| os dados foram retornados
 |404| campos não preenchidos
-
-### Balanço de contas
-
-`GET` expendapp/api/balancodecontas/{id}
-
-*Exemplo de resposta*
-
-```js
-{
-    quantidade compras do mês: '11',
-    valor total do mes: 1200.00,
-    limite mensal: 2000.00,
-    economia: 800.00,
-    forma de pagamento mais usado: 'Crédito',
-    média de gasto mensal: 'Abaixo'
-}
-```
-
-*Resposta*
-
-| código | descrição 
-|--------|----------
-|200| os dados foram retornados
-|404| não foi encontrado
 
 ### Configurações gerais
 
