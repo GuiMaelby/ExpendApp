@@ -7,89 +7,40 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
+@Data
+@NoArgsConstructor
 public class Produto {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+
 	@NotNull
 	private String produto;
+
 	@Min(0)
 	private BigDecimal valor;
+
 	@NotNull
 	private LocalDate data;
+
 	@NotNull
 	private int qtd;
+	
 	private String tipoPg;
 
-	protected Produto(){
+	@ManyToOne
+	private Conta conta;
+
+	public void setConta(Produto produto2) {
+	}
+
 		
 	}
 
-	public Produto(String produto, BigDecimal valor, LocalDate data, int qtd, String tipoPg) {
-        this.produto = produto;
-        this.valor = valor;
-        this.data = data;
-        this.qtd = qtd;
-        this.tipoPg = tipoPg;
-    }
-
-	public String getProduto() {
-		return produto;
-	}
-
-	public void setProduto(String produto) {
-		this.produto = produto;
-	}
-
-	public BigDecimal getValor() {
-		return valor;
-	}
-
-	public void setValor(BigDecimal valor) {
-		this.valor = valor;
-	}
-
-	public LocalDate getData() {
-		return data;
-	}
-
-	public void setData(LocalDate data) {
-		this.data = data;
-	}
-
-	public int getQtd() {
-		return qtd;
-	}
-
-	public void setQtd(int qtd) {
-		this.qtd = qtd;
-	}
-
-	public String getTipopg() {
-		return tipoPg;
-	}
-
-	public void setTipopg(String tipopg) {
-		this.tipoPg = tipopg;
-	}
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	@Override
-	public String toString() {
-		return "Produto [nome=" + produto + ", valor=" + valor + ", data=" + data + ", qtd=" + qtd + ", tipopg="
-				+ tipoPg + "]";
-	}
-	
-}
