@@ -39,12 +39,14 @@ public class ContaController {
     @Autowired
     ContaRepository contaRepository;
 
+
     @GetMapping
     @Operation(
         summary = "Listar contas",
         description = "Retorna todas as contas cadastradas"
         )
     public List<Conta>index(){
+        log.info("Buscando contas no BD");
         return contaRepository.findAll();
     }
 
@@ -64,7 +66,7 @@ public class ContaController {
     @GetMapping("{id}")
     public ResponseEntity<Conta> show(@PathVariable Long id) {
         log.info("detalhando conta" + id);
-        return ResponseEntity.ok(getConta(id));
+        return ResponseEntity.ok( getConta(id));
     }
 
     @DeleteMapping("{id}")
@@ -83,10 +85,11 @@ public class ContaController {
         return ResponseEntity.ok(conta);
     }
 
-    private void getConta(Long id) {
+    private Conta getConta(Long id) {
+        return contaRepository.findById(id)
+            .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "conta não encontrada"));
     }
-
-  
+ 
 }
     
 

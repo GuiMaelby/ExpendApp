@@ -22,7 +22,7 @@ public class TokenService {
     UsuarioRepository usuarioRepository;
 
 
-    public Token generateToken(Credencial credencial) {
+    public static Token generateToken(Credencial credencial) {
         Algorithm alg =  Algorithm.HMAC256("meusecret");
         var jwt = JWT.create()
                     .withSubject(credencial.email())

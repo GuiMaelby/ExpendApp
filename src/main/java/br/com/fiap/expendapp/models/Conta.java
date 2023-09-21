@@ -1,12 +1,14 @@
 package br.com.fiap.expendapp.models;
 
-import java.time.LocalDate;
+
+import java.math.BigDecimal;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Null;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -18,12 +20,11 @@ import lombok.NoArgsConstructor;
 public class Conta {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @NotNull
+
+    @NotBlank(message = "O nome é obrigatório")
     private String nome;
-    @NotNull
-    private String email;
-    @NotNull
-    private String senha;
-    @NotNull
-    private LocalDate dataNascimento;    
+
+    @Null
+    private BigDecimal valor;
+    
 }

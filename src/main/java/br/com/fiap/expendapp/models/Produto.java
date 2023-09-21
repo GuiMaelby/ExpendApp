@@ -3,9 +3,7 @@ package br.com.fiap.expendapp.models;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties.Pageable;
 import org.springframework.hateoas.EntityModel;
-import org.springframework.hateoas.Link;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.*;
 
 import br.com.fiap.expendapp.controllers.ContaController;
@@ -21,6 +19,8 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import org.springframework.data.domain.Pageable;
 
 @Entity
 @Data
@@ -49,7 +49,7 @@ public class Produto {
 	@ManyToOne
 	private Conta conta;
 
-	public void setConta(Produto produto2) {
+	public void setConta(Conta conta2) {
 	}
 
 	public EntityModel<Produto> toEntityModel() {
